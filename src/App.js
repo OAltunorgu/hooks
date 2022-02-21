@@ -1,10 +1,10 @@
-import Login from "./components/Login";
+import Equipment from "./components/Equipment";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Login />
+        <Equipment />
       </header>
     </div>
   );
