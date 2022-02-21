@@ -1,13 +1,10 @@
-import ReadMore from "./components/ReadMore";
+import Login from "./components/Login";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <ReadMore
-          text={"Selam Ben Oğulcan. 24 Yaşındayım. :) "}
-          max={10}
-        />
+        <Login />
       </header>
     </div>
   );
