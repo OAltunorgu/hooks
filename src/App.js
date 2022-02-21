@@ -1,22 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import ClassSayac from "./components/ClassSayac";
+import FunctionSayac from "./components/FunctionSayac";
+
+//Amacımız bir sayaç uygulamasını useState kullanarak yazacağız. 0'dan başlatıp arrtıracağız. 
+//Bunu hem class component nasıl yaparım hem de useState hook kullanarak nasıl yaparım diye 2 şekildede yapacağız.
+//FunctionSayacta useState hookunu kullanacağız.
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <ClassSayac />
+        <FunctionSayac />
       </header>
     </div>
   );
