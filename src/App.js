@@ -1,10 +1,24 @@
 import React, { Component } from 'react'
-import Posts from './components/Posts';
+import SayHello from './components/SayHello';
 
 class App extends Component {
+  state = {
+    show: true
+  }
+
+  handleShow = () => {
+    this.setState(prevState => ({
+      show: !prevState.show
+    }));
+  }
+
   render() {
+    const { show } = this.state;
     return (
-      <Posts />
+      <div>
+        <button onClick={this.handleShow}>{show ? "Sakla" : "Göster"}</button>
+        {show && <SayHello />}
+      </div>
     )
   }
 }
