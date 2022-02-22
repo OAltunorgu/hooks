@@ -1,15 +1,11 @@
-import ClassCounter from "./components/ClassCounter";
-import HookCounter from "./components/HookCounter";
+import React, { Component } from 'react'
+import Posts from './components/Posts';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <ClassCounter />
-        <HookCounter />
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Posts />
+    )
+  }
 }
-
 export default App;
