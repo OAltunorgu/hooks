@@ -4,8 +4,8 @@ const App = () => {
   const [sayi, setSayi] = useState(0);
   const [theme, setTheme] = useState("dark");
 
-  const getItems = useCallback(() => {
-    return [sayi, sayi + 1, sayi + 2]
+  const getItems = useCallback((increment) => {
+    return [sayi + increment, sayi + increment + 1, sayi + increment + 2]
   }, [sayi])
 
   const backgroundColor = theme === "dark" ? "#000" : "#fff";
@@ -31,7 +31,7 @@ const ItemsList = ({ getItems }) => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    setItems(getItems());
+    setItems(getItems(5));
     console.log("İtemleri güncelliyorum.")
   }, [getItems]);
 
