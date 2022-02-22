@@ -1,10 +1,10 @@
 import React from 'react'
-import FocusInput from './components/FocusInput'
+import MemoizedCounter from './components/MemoizedCounter'
 
 export default function App() {
   return (
     <div>
-      <FocusInput />
+      <MemoizedCounter />
     </div>
   )
 }
