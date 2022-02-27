@@ -1,49 +1,37 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useReducer } from 'react'
+function App() {
 
-const App = () => {
-  const [sayi, setSayi] = useState(0);
-  const [theme, setTheme] = useState("dark");
+  const initialState = {
+    count: 0
+  };
 
-  const getItems = useCallback((increment) => {
-    return [sayi + increment, sayi + increment + 1, sayi + increment + 2]
-  }, [sayi])
-
-  const backgroundColor = theme === "dark" ? "#000" : "#fff";
-
-  const handleTheme = () => {
-    if (theme === "dark") {
-      setTheme("light");
-    } else {
-      setTheme("dark");
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case 'arttir':
+        return { count: state.count + 1 };
+      case 'azalt':
+        return { count: state.count - 1 };
+      default:
+        return state;
     }
   }
 
-  return (
-    <React.Fragment>
-      <input type="number" value={sayi} onChange={e => setSayi(parseInt(e.target.value))} />
-      <button onClick={() => handleTheme()} style={{ background: `${backgroundColor}` }}> Tema Değiştir</button>
-      <ItemsList getItems={getItems} />
-    </React.Fragment>
-  )
-}
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-const ItemsList = ({ getItems }) => {
-  const [items, setItems] = useState([]);
+  const arttir = () => {
+    dispatch({ type: "arttir" });
+  };
 
-  useEffect(() => {
-    setItems(getItems(5));
-    console.log("İtemleri güncelliyorum.")
-  }, [getItems]);
+  const azalt = () => {
+    dispatch({ type: "azalt" });
+  };
 
   return (
     <div>
-      <ul>
-        {
-          items.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-      </ul>
+      <p>Sayaç: {state.count}</p>
+      <button onClick={() => arttir()}>Arttır</button>
+      <button onClick={() => azalt()}>Azalt</button>
     </div>
-  );
+  )
 }
 export default App;
